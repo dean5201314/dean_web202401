@@ -170,22 +170,43 @@
 
   <script>
     $(document).ready(function () {
+      // 將類別 myBtn元件轉成 JQ物件並命名為 myBtn
       const myBtn = $('.myBtn');
+      // 將類別 page-container 元件轉成 JQ物件並命名為 pageContainer
       const pageContainer = $('.page-container');
 
       console.log('myBtn', myBtn);
-      // init
+      // init， 將 JQ物件  pageContainer用 JQ方法 hide()隱藏起來
       pageContainer.hide();      
 
-      myBtn.hover(function () {
+      myBtn.click(function () {
+        // 用console.log()顯示目前的元件'this'是哪一個元件this
         console.log('this', this);
+        // 將this的元件轉成 JQ物件，用方法attr取出屬性'data-page'的值，指派給變數 getDataPage
         let getDataPage = $(this).attr('data-page');
+        // 用console.log()顯示變數 'getDataPage' 的值 getDataPage
         console.log('getDataPage', getDataPage);
-
+        
+        // 將所有 pageContainer的 JQ物件隱藏起來
         pageContainer.hide();
+        // 將變數 getDataPage的值指到的 JQ物件顯示出來
         $(getDataPage).show();
       });
 
+      // 將 JQ物件 myBtn用 JQ方法 hover()指定要執行的的後續動作
+      myBtn.hover(function () {
+        // 用console.log()顯示目前的元件'this'是哪一個元件this
+        console.log('this', this);
+        // 將this的元件轉成 JQ物件，用方法attr取出屬性'data-page'的值，指派給變數 getDataPage
+        let getDataPage = $(this).attr('data-page');
+        // 用console.log()顯示變數 'getDataPage' 的值 getDataPage
+        console.log('getDataPage', getDataPage);
+        
+        // 將所有 pageContainer的 JQ物件隱藏起來
+        pageContainer.hide();
+        // 將變數 getDataPage的值指到的 JQ物件顯示出來
+        $(getDataPage).show();
+      });
 
 
 
