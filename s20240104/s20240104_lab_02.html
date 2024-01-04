@@ -15,23 +15,22 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col">
-        <input type="number" name="" id="num1" placeholder="number1?">
-      </div>
-      <div class="col">
-        <input type="number" name="" id="num2" placeholder="number2>">
-      </div>
-      <div class="col">
-        <input type="text" name="" id="opt" placeholder="option?">
-      </div>
-      <div class="col">
+
+      <div class="col-4">
         <div class="d-grid">
-          <button class="btn btn-primary" type="button" id="myBtn">Button</button>
+          <button class="myBtn btn btn-primary" type="button" id="Btn1">原價1000</button>
+        </div>
+        <div data-price="#1000" data-level="#A" class="myPage d-grid mt-2"  id="page1">
+          <p>商品細節：</p>
+          Page1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deleniti provident atque perspiciatis,
+          fugiat alias repellat, cupiditate aut libero cumque minus vel voluptas omnis, necessitatibus exercitationem 
+          tenetur facilis iure delectus. Distinctio doloremque voluptatem suscipit perferendis iure cumque, est labore.
+          <p>優惠價：</p>
         </div>
       </div>
-      <div class="col">
-        <span: id="resultSpan">result...</span:>
-      </div>
+
+
+
     </div>
   </div>
 
@@ -42,6 +41,21 @@
 
   <script>
     $(document).ready(function () {
+      const myBtn = $('.myBtn');
+      const myPage = $('.myPage');
+      const Btn1 = $('#Btn1');
+      const page1 = $('#page1');
+
+      console.log('Btn1', Btn1);
+      console.log('page1', page1);
+      console.log('myBtn', myBtn);
+      console.log('myPage', myPage);    
+      // init
+      page1.hide();
+
+      myBtn.click(function () {
+
+      })
 
     });
 
