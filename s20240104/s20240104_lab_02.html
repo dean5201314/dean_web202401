@@ -20,12 +20,14 @@
         <div class="d-grid">
           <button class="myBtn btn btn-primary" type="button" id="Btn1">原價1000</button>
         </div>
-        <div data-price="#1000" data-level="#A" class="myPage d-grid mt-2"  id="page1">
-          <p>商品細節：</p>
-          Page1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deleniti provident atque perspiciatis,
-          fugiat alias repellat, cupiditate aut libero cumque minus vel voluptas omnis, necessitatibus exercitationem 
-          tenetur facilis iure delectus. Distinctio doloremque voluptatem suscipit perferendis iure cumque, est labore.
-          <p>優惠價：</p>
+        <div class="myPage" id="page1">
+          <div data-price="#1000" data-level="#A" class="d-grid mt-2">
+            <!-- <p>商品細節：</p> -->
+            Page1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deleniti provident atque perspiciatis,
+            fugiat alias repellat, cupiditate aut libero cumque minus vel voluptas omnis, necessitatibus exercitationem 
+            tenetur facilis iure delectus. Distinctio doloremque voluptatem suscipit perferendis iure cumque, est labore.
+            <!-- <p>優惠價：</p> -->
+          </div>
         </div>
       </div>
 
@@ -49,12 +51,12 @@
       console.log('Btn1', Btn1);
       console.log('page1', page1);
       console.log('myBtn', myBtn);
-      console.log('myPage', myPage);    
+      console.log('myPage', myPage);  
+      console.log('type of myPage', typeof(myPage));    
       // init
-      page1.hide();
+      myPage.hide();
 
       myBtn.click(function () {
-
       })
 
     });
