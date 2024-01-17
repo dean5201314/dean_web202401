@@ -23,15 +23,6 @@
         input[type="text"] {
             width: 200px;
         }
-
-        input[type="submit"] {
-            width: 100px;
-        }
-
-        button {
-            width: 100px;
-            font-size: 24px;
-        }
     </style>
 
 </head>
@@ -45,10 +36,11 @@
                 <input type="text" name="pw" id="">
             </p>
             <p>
-                <a href="../../views/login/register.html"><button type="button">註冊</button></a>
-                <input type="submit" value="登入">
+                <input type="submit" value="Login">
             </p>
-
+            <p>
+                <input type="hidden">
+            </p>
         </form>
     </div>
 </div>
@@ -75,19 +67,19 @@
                 url: url,
                 data: data,
                 dataType: "json",
-                success: function (res) {
+                success: function (res) {                    
                     console.log('res', res);
                     let result = res.message;
                     switch (result) {
                         case 'ok':
-                        // .....
+                            // .....
                         case 'error':
                             // ....
                             // alert('12321321')
                             location.href('/views/login.php')
-
+                            
                             break;
-
+                    
                         default:
                             break;
                     }
