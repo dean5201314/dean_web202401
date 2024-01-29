@@ -56,48 +56,48 @@
             </div>
         </div>
         <div class="row mt-3">
-          <div class="col">
-            <button type="button" class="btn btn-success" data-name="手工餅乾" data-price="120" data-img="b01.jpg">
-              手工餅乾
-            </button>
-            <button type="button" class="btn btn-success" data-name="吐司" data-price="65" data-img="b02.jpg">
-              吐司
-            </button>
-            <button type="button" class="btn btn-success" data-name="馬卡龍" data-price="50" data-img="b03.jpg">
-              馬卡龍
-            </button>
-          </div>
+            <div class="col">
+                <button type="button" class="btn btn-success" data-name="手工餅乾" data-price="120" data-img="b01.jpg">
+                    手工餅乾
+                </button>
+                <button type="button" class="btn btn-success" data-name="吐司" data-price="65" data-img="b02.jpg">
+                    吐司
+                </button>
+                <button type="button" class="btn btn-success" data-name="馬卡龍" data-price="50" data-img="b03.jpg">
+                    馬卡龍
+                </button>
+            </div>
         </div>
     </div>
-        
+
     <hr>
-    
-  <div class="container">
-    <table class="table table-hover align-middle text-center">
-      <thead>
-        <tr>
-          <th width="7%">編號</th>
-          <th width="12%">品名</th>
-          <th width="12%">單價</th>
-          <th width="12%">數量</th>
-          <th >小計</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>a01</td>
-          <td>
-            <img src="https://picsum.photos/id/26/160/120" alt="">
-            <br>
-            咖啡
-          </td>
-          <td>100</td>
-          <td>1</td>
-          <td>100</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+
+    <div class="container">
+        <table class="table table-hover align-middle text-center">
+            <thead>
+                <tr>
+                    <th width="7%">編號</th>
+                    <th width="12%">品名</th>
+                    <th width="12%">單價</th>
+                    <th width="12%">數量</th>
+                    <th>小計</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>a01</td>
+                    <td>
+                        <img src="https://picsum.photos/id/26/160/120" alt="">
+                        <br>
+                        咖啡
+                    </td>
+                    <td>100</td>
+                    <td>1</td>
+                    <td>100</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 
 
@@ -109,8 +109,11 @@
 
     <script>
         $(document).ready(function () {
+            const myBtn = $('.btn');
+            myBtn.click(function (e) {
+                console.log('this', this);
 
-        });
+            });
 
     </script>
 </body>

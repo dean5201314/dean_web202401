@@ -53,11 +53,11 @@
           <th width="12%">數量</th>
           <th>小計</th>
           <th width="15%">備註</th>
-          <th width="7%">OPTERATE</th>
+          <th width="15%">OPERATE</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <!-- <tr>
           <td>a01</td>
           <td>
             <img src="https://picsum.photos/id/26/160/120" alt="">
@@ -73,9 +73,10 @@
             <input type="text" class="form-control" name="" id="" max="10" min="1">
           </td>
           <td>
+            <button type="button" class="cloneBtn btn btn-warning">Clone</button>
             <button type="button" class="delBtn btn btn-danger">Del</button>
           </td>
-        </tr>
+        </tr> -->
       </tbody>
     </table>
   </div>
@@ -90,12 +91,36 @@
     $(document).ready(function () {
       function delFun(nowThis) {
         console.log('del ok');
+        // 抓tr數量
+        // 如果tr <=2 不能刪除
+
+        // 抓tr數量
+        let getTrCount = $('tr').length;
+        console.log('getTrCount', getTrCount);
+        // 如果tr <= 2 不能刪除
+        if (getTrCount > 2) {
+          let nowTr = $(nowThis).parent().parent();
+          nowTr.remove();
+        }
+
+
+      }
+
+      function cloneFun(nowThis) {
+        console.log('clone ok');
         let nowTr = $(nowThis).parent().parent();
-        nowTr.remove();
+        // nowTr.clone(true).appendTo("tbody");
+        nowTr.clone(true).insertAfter(nowTr);
       }
 
       const myBtn = $('#myBtn');
       let delBtn = $('.delBtn');
+      let cloneBtn = $('.cloneBtn');
+
+      // init cloneBtn
+      cloneBtn.click(function (e) {
+        cloneFun(this);
+      });
 
       // init delBtn
       delBtn.click(function (e) {
@@ -118,9 +143,10 @@
           </td>
           <td>100</td>
           <td>
-            <input type="text" class="form-control" name="" id="" value="1" max="10" min="1">
+            <input type="text" class="form-control" name="" id="" max="10" min="1">
           </td>
           <td>
+            <button type="button" class="cloneBtn btn btn-warning">Clone</button>
             <button type="button" class="delBtn btn btn-danger">Del</button>
           </td>
         </tr>
@@ -129,10 +155,16 @@
         $('tbody').append(content);
 
         addDelBtn = $('.delBtn').last();
+        addCloneBtn = $('.cloneBtn').last();
 
         // addDelBtn
         addDelBtn.click(function (e) {
           delFun(this);
+        });
+
+        // addCloneBtn
+        addCloneBtn.click(function (e) {
+          cloneFun(this);
         });
 
       });

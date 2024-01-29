@@ -16,7 +16,7 @@
   <div class="container">
     <div class="row mt-3">
       <div class="col">
-        <button id="myBtn" type="button" class="btn btn-primary" data-name="咖啡" data-price="100" data-img="a01.jpg">
+        <button type="button" class="btn btn-primary" data-name="咖啡" data-price="100" data-img="a01.jpg">
           咖啡
         </button>
         <button type="button" class="btn btn-primary" data-name="花茶" data-price="200" data-img="a02.jpg">
@@ -29,7 +29,7 @@
     </div>
     <div class="row mt-3">
       <div class="col">
-        <button type="button" class="btn btn-success" data-name="手工餅乾" data-price="120" data-img="b01.jpg" data-id="1">
+        <button type="button" class="btn btn-success" data-name="手工餅乾" data-price="120" data-img="b01.jpg">
           手工餅乾
         </button>
         <button type="button" class="btn btn-success" data-name="吐司" data-price="65" data-img="b02.jpg">
@@ -51,9 +51,7 @@
           <th width="12%">品名</th>
           <th width="12%">單價</th>
           <th width="12%">數量</th>
-          <th>小計</th>
-          <th width="15%">備註</th>
-          <th width="7%">OPTERATE</th>
+          <th >小計</th>
         </tr>
       </thead>
       <tbody>
@@ -65,16 +63,8 @@
             咖啡
           </td>
           <td>100</td>
-          <td>
-            <input type="number" class="form-control" name="" id="" value="1" max="10" min="1">
-          </td>
+          <td>1</td>
           <td>100</td>
-          <td>
-            <input type="text" class="form-control" name="" id="" max="10" min="1">
-          </td>
-          <td>
-            <button type="button" class="delBtn btn btn-danger">Del</button>
-          </td>
         </tr>
       </tbody>
     </table>
@@ -88,54 +78,7 @@
 
   <script>
     $(document).ready(function () {
-      function delFun(nowThis) {
-        console.log('del ok');
-        let nowTr = $(nowThis).parent().parent();
-        nowTr.remove();
-      }
 
-      const myBtn = $('#myBtn');
-      let delBtn = $('.delBtn');
-
-      // init delBtn
-      delBtn.click(function (e) {
-        delFun(this);
-      });
-
-      myBtn.click(function (e) {
-        let name = "好喝的咖啡";
-        let content = `
-        <tr>
-          <td>a01</td>
-          <td>
-            <img src="https://picsum.photos/id/26/160/120" alt="">
-            <br>
-            咖啡
-          </td>
-          <td>100</td>
-          <td>
-            <input type="number" class="form-control" name="" id="" value="1" max="10" min="1">
-          </td>
-          <td>100</td>
-          <td>
-            <input type="text" class="form-control" name="" id="" value="1" max="10" min="1">
-          </td>
-          <td>
-            <button type="button" class="delBtn btn btn-danger">Del</button>
-          </td>
-        </tr>
-        `;
-
-        $('tbody').append(content);
-
-        addDelBtn = $('.delBtn').last();
-
-        // addDelBtn
-        addDelBtn.click(function (e) {
-          delFun(this);
-        });
-
-      });
     });
 
   </script>
