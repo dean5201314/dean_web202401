@@ -13,57 +13,45 @@
     <style>
         .container {
             box-sizing: border-box;
-            /* border: 1px solid black; */
             width: 100%;
         }
 
         .row {
             width: 100%;
-            /* height: 150px; */
-            /* background-color: antiquewhite; */
             margin: auto;
         }
 
         .col {
-            /* background-color: lightblue; */
             margin: auto;
         }
 
-        .btn {
-            width: 20%;
-            height: 50px;
-            /* background-color: aqua; */
-            border: 1px solid black;
-            border-radius: 5px;
-            margin: auto;
-        }
     </style>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row mt-3">
             <div class="col">
-                <button type="button" class="btn btn-primary" data-name="咖啡" data-price="100" data-img="a01.jpg">
+                <button type="button" class="myBtn btn btn-primary" data-name="咖啡" data-price="100" data-img="32">
                     咖啡
                 </button>
-                <button type="button" class="btn btn-primary" data-name="花茶" data-price="200" data-img="a02.jpg">
+                <button type="button" class="myBtn btn btn-primary" data-name="花茶" data-price="200" data-img="33">
                     花茶
                 </button>
-                <button type="button" class="btn btn-primary" data-name="礦泉水" data-price="50" data-img="a03.jpg">
+                <button type="button" class="myBtn btn btn-primary" data-name="礦泉水" data-price="50" data-img="35">
                     礦泉水
                 </button>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col">
-                <button type="button" class="btn btn-success" data-name="手工餅乾" data-price="120" data-img="b01.jpg">
+                <button type="button" class="myBtn btn btn-success" data-name="手工餅乾" data-price="120" data-img="27"  data-id="1">
                     手工餅乾
                 </button>
-                <button type="button" class="btn btn-success" data-name="吐司" data-price="65" data-img="b02.jpg">
+                <button type="button" class="myBtn btn btn-success" data-name="吐司" data-price="65" data-img="28">
                     吐司
                 </button>
-                <button type="button" class="btn btn-success" data-name="馬卡龍" data-price="50" data-img="b03.jpg">
+                <button type="button" class="myBtn btn btn-success" data-name="馬卡龍" data-price="50" data-img="25">
                     馬卡龍
                 </button>
             </div>
@@ -72,19 +60,21 @@
 
     <hr>
 
-    <div class="container">
+    <div class="container-fluid">
         <table class="table table-hover align-middle text-center">
             <thead>
                 <tr>
-                    <th width="7%">編號</th>
+                    <!-- <th width="7%">編號</th> -->
                     <th width="12%">品名</th>
-                    <th width="12%">單價</th>
-                    <th width="12%">數量</th>
-                    <th>小計</th>
+                    <!-- <th width="12%">單價</th> -->
+                    <th width="7%">數量</th>
+                    <th width="12%">小計</th>
+                    <th>備註</th>
+                    <th width="15%">操作</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+             <!--   <tr>
                     <td>a01</td>
                     <td>
                         <img src="https://picsum.photos/id/26/160/120" alt="">
@@ -92,9 +82,17 @@
                         咖啡
                     </td>
                     <td>100</td>
-                    <td>1</td>
+                    <td>
+                      <input type="number" class="form-control" name="" id="" value="1" max="10" min="1">
+                    </td>
                     <td>100</td>
-                </tr>
+                    <td>
+                      <input type="text" class="form-control" name="" id="" max="10" min="1">
+                    </td>
+                    <td>
+                      <button type="button" class="delBtn btn btn-danger">Del</button>
+                    </td>
+                </tr> -->
             </tbody>
         </table>
     </div>
@@ -109,11 +107,95 @@
 
     <script>
         $(document).ready(function () {
-            const myBtn = $('.btn');
-            myBtn.click(function (e) {
-                console.log('this', this);
-
+          function delFun(nowThis) {
+            console.log('del ok');
+            let nowTr = $(nowThis).parent().parent();
+            nowTr.remove();
+    
+            // 抓tr數量
+            // 如果tr <=2 不能刪除
+    
+            // 抓tr數量
+            // let getTrCount = $('tr').length;
+            // console.log('getTrCount', getTrCount);
+            // 如果tr <= 2 不能刪除
+            // if (getTrCount > 2) {
+            //   let nowTr = $(nowThis).parent().parent();
+            //   nowTr.remove();
+            // }
+    
+    
+          }
+    
+          function cloneFun(nowThis) {
+            console.log('clone ok');
+            let nowTr = $(nowThis).parent().parent();
+            // nowTr.clone(true).appendTo("tbody");
+            nowTr.clone(true).insertAfter(nowTr);
+          }
+    
+          const myBtn = $('.myBtn');
+          let delBtn = $('.delBtn');
+          let cloneBtn = $('.cloneBtn');
+    
+    
+          // init cloneBtn
+          cloneBtn.click(function (e) {
+            cloneFun(this);
+          });
+    
+          // init delBtn
+          delBtn.click(function (e) {
+            delFun(this);
+          });
+    
+          myBtn.click(function (e) {
+            let name = $(this).attr('data-name');
+            let price = $(this).attr('data-price');
+            let imgUrl = $(this).attr('data-img');
+    
+    
+    
+            let content = `
+            <tr>
+              <td>
+                <img class="rounded-circle" src="https://picsum.photos/id/${imgUrl}/80/80" alt="">
+                <br>
+                ${name}
+                <br>
+                <span class="text-danger">${price} 元</span>
+              </td>
+              <td>
+                <input type="number" class="form-control" name="" id="" value="1" max="10" min="1">
+              </td>
+              <td>${price}</td>
+              <td>
+                <input type="text" class="form-control" name="" id="" max="10" min="1">
+              </td>
+              <td>
+                <button type="button" class="cloneBtn btn btn-warning"><i class="fa-regular fa-copy"></i></button>
+                <button type="button" class="delBtn btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+              </td>
+            </tr>
+            `;
+    
+            $('tbody').append(content);
+    
+            addDelBtn = $('.delBtn').last();
+            addCloneBtn = $('.cloneBtn').last();
+    
+            // addDelBtn
+            addDelBtn.click(function (e) {
+              delFun(this);
             });
+    
+            // addCloneBtn
+            addCloneBtn.click(function (e) {
+              cloneFun(this);
+            });
+    
+          });
+        });
 
     </script>
 </body>
